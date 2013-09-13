@@ -100,11 +100,6 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /*
-    .container {
-        max-width: 730px;
-    }
-*/
     /* Remove the padding we set earlier */
     .header,
     .marketing,
@@ -120,20 +115,4 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
-}
-
-.logEntry {
-  .logMsg {
-    display: inline-block;
-    max-width: 65%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  &:hover .logMsg {
-    max-width: 100%;
-    white-space: normal;
-    display: inline;
-  }
 }
