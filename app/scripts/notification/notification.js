@@ -1,4 +1,7 @@
+/*global define, Notification, webkitNotifications */
 define(['require', 'jquery', 'modernizr/extensions'], function (require, $) {
+	'use strict';
+
 	if(!$('html.notification').length) {
 		return false;
 	}
@@ -63,7 +66,7 @@ define(['require', 'jquery', 'modernizr/extensions'], function (require, $) {
 			return navigator.userAgent.indexOf('Chrome') < 0;
 		},
 		syncUI: function () {
-			var permission = api.getPermission()
+			var permission = api.getPermission();
 			api.updatePermissionButton(permission);
 			if(permission === 'granted') {
 				notificationInput.prop('disabled', false);
@@ -100,17 +103,17 @@ define(['require', 'jquery', 'modernizr/extensions'], function (require, $) {
 			notification = new Notification(title, options);
 			notification.onshow = function () {
 				console.log('event', 'Notification#onshow');
-			}
+			};
 			notification.onclick = function () {
 				console.log('event', 'Notification#onclick');
-			}
+			};
 			notification.onclose = function () {
 				console.log('event', 'Notification#onclose');
 				console.groupEnd();
-			}
+			};
 			notification.onerror = function () {
 				console.error('event', 'Notification#onerror');
-			}
+			};
 		},
 		init: function () {
 			$('#permissionProp .answer').addClass(Notification.permission ? 'glyphicon-check text-success' : 'glyphicon-remove text-danger');

@@ -1,4 +1,8 @@
+/*global define */
+
 define(['jquery'], function ($) {
+	'use strict';
+
 	var _append = function (logger, html) {
 			logger.el.append(html);
 		},
@@ -49,7 +53,7 @@ define(['jquery'], function ($) {
 					.addClass('glyphicon-stop');
 			}
 		}
-	}
+	};
 
 	return EventLog;
 });
