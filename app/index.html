@@ -1,0 +1,148 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>NotificationTest</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <div class="container">
+            <header class="header">
+                <h1 class="text-muted">Web Notifications API tests</h1>
+            </header>
+
+            <p class="lead alert alert-info">This page is used to test the Web Notifications API in different browsers</p>
+
+            <div class="notificationCallout bs-callout bs-callout-danger hide">
+                Your browser does not support notifications!
+            </div>
+
+            <div id="notificationStuff" class="hide">
+                <div class="row">
+                    <div class="col-sm-5 col-md-3">
+                        <p class="text-center">
+                            <button type="button" id="permissionBtn" class="btn btn-info">Ask permission</button>
+                        </p>
+                        <p id="permissionProp">
+                            <strong class="answer glyphicon"></strong> Has <code>Notification.permission</code>
+                        </p>
+                        <p id="requestPermission">
+                            <strong class="answer glyphicon"></strong> Request permission without user interaction
+                        </p>
+                    </div>
+                    <div class="col-sm-7 col-md-4">
+                        <form role="form" id="notificationForm">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Please enter the title of the notification">
+                            </div>
+                            <div class="form-group">
+                                <label for="body">Body</label>
+                                <textarea class="form-control" id="body" placeholder="Please enter the body text of the notification"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="icon">Icon</label>
+                                <input type="url" id="icon" class="form-control" placeholder="Please enter the url to an icon asset">
+                                <p class="help-block">If you want to use display an icon in the notification, enter the URL to the asset here.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="tag">Tag</label>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <input type="text" id="tag" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="showBtn">Show notification</button>
+                        </form>
+                    </div>
+                    <div class="clearfix visible-sm">
+                        <p></p>
+                    </div>
+                    <div class="col-sm-12 col-md-5">
+                        <div class="panel panel-default">
+                            <div id="eventLog"  class="panel-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <p>♥ from the Core-team</p>
+                <div class="container text-center">
+                    <h4>Instructions on how to reset the notification permissions</h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5>Google Chrome</h5>
+                        <ol>
+                            <li>Click the Chrome menu <img src="//storage.googleapis.com/support-kms-prod/SNP_2696434_en_v1" alt="Chrome menu" title="Chrome menu" width="29" height="29"> on the browser toolbar.</li>
+                            <li>Select Settings.</li>
+                            <li>Click Show advanced settings.</li>
+                            <li>In the "Privacy" section, click Content settings.</li>
+                            <li>
+                                In the dialog that appears, scroll down to the "Notifications" section.
+                                <!--Select your default permission for future location requests:
+                                <ul>
+                                    <li>Allow all sites to show desktop notifications: Select this option to let all sites automatically show you notifications.</li>
+                                    <li>Ask me when a site wants to show desktop notifications: Select this option if you want Google Chrome to alert you whenever a site wants to show you notifications.</li>
+                                    <li>Do not allow any site to show desktop notifications:  Select this option to automatically deny sites from showing you notifications.</li>
+                                </ul>
+                                -->
+                            </li>
+                            <li>Click "Manage exceptions"</li>
+                            <li>Remove the entry originating from the host that displays this page</li>
+                        </ol>
+
+
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>Safari</h5>
+                        <ol>
+                            <li>Choose Safari > Preferences</li>
+                            <li>Click Notifications</li>
+                            <li>Select Allow or Deny for the website whose notification permission you want to change</li>
+                        </ol>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>Mozilla Firefox</h5>
+                        <ol>
+                            <li>On the page with the permission granted, right click and select "Page Info".</li>
+                            <li>Click the "Permission" tab</li>
+                            <li>Under the "Show notifications" setting, click "Use default"</li>
+                        </ol>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
